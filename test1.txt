@@ -3,3 +3,8 @@ Created PAT(token) for me
 doing for pratice purpose
 
 echo hello world
+
+How to run the script
+bash script name
+sh scriptname
+./sh scriptname
