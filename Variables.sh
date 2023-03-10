@@ -2,16 +2,18 @@
 
 #variable : which holds the value
 
-name="priya"
-age=28
-
+a-10
+b=20
 
 # No datatype in Bash. Everything considered as STRING
 # print $
 # echo $a
 
-echo $name #prints priya
-echo $age  #prints 28
+echo $a
+echo ${a}
+echo "$c"
+
+
 
 
 
