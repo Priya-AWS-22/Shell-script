@@ -13,5 +13,5 @@ echo -e "\e[36m cyan \e[0m"
 
 #background color
 
-echo -e "\e[42;32m Green \e[0m"
+echo -e "\e[44;32m Green blue \e[0m"
 
