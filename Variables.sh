@@ -10,8 +10,8 @@ age=28
 # print $
 # echo $a
 
-echo $name 
-echo $age
+echo $name #prints priya
+echo $age  #prints 28
 
 
 
