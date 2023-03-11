@@ -9,4 +9,11 @@ sample()
 
 sample
 
+function()
+{
+    i like bash scripting 
+}
+
+print function
+
 
