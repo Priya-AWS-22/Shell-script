@@ -9,10 +9,11 @@ sample()
 
 sample
 
-function () {
-    echo i like bash scripting 
+function() {
+    echo "i like bash scripting"
+    echo "love to learn more" 
 }
 
-print function
+echo "calling function"
 
 
