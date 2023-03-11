@@ -9,7 +9,7 @@ sample()
 
 sample
 
-function()
+function ()
 {
     i like bash scripting 
 }
