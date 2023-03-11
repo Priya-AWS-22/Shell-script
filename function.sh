@@ -4,7 +4,9 @@
 
 sample()
 {
-    echo "i am a messaged called form function"
+    echo "i am a messaged called form sample function"
 }
+
+sample
 
 
