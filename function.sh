@@ -9,9 +9,8 @@ sample()
 
 sample
 
-function ()
-{
-    i like bash scripting 
+function () {
+    echo i like bash scripting 
 }
 
 print function
