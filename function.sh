@@ -15,5 +15,6 @@ function() {
 }
 
 echo "calling function"
+function
 
 
