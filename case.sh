@@ -8,12 +8,14 @@
 
 #esac
 
-case $action in
+ACTION=$1
+
+case $ACTION in
 
 start) 
-echo "start the payment"
+    echo "start the payment"
 ;;
 stop)
-echo "stop the payment"
+    echo "stop the payment"
 ;;
 esac
