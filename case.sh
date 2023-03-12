@@ -14,8 +14,10 @@ case $ACTION in
 
 start) 
     echo "start the payment"
+    exit 0
 ;;
 stop)
     echo "stop the payment"
+    exit 2
 ;;
 esac
