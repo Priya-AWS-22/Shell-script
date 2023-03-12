@@ -2,7 +2,7 @@
 
 echo #Multi line comment
 
->>comment
+>>COMMENT
 a=10
 echo $a
-comment
+COMMENT
