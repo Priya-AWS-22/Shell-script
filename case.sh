@@ -10,9 +10,9 @@
 
 case action1 in
 start) 
-echo -e "start the payment"
+echo "start the payment"
 ;;
 stop)
-echo -e "stop the payment"
+echo "stop the payment"
 ;;
 esac
