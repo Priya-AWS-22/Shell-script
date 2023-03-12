@@ -8,7 +8,8 @@
 
 #esac
 
-case action1 in
+case $action in
+
 start) 
 echo "start the payment"
 ;;
