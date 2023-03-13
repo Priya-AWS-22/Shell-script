@@ -4,7 +4,7 @@ set -e
 
 ID=$(id -u)
 if [ "$ID" -ne 0 ] ; then
-   echo -e "\e[33m Excute this script as root or sudo \e[0m"
+   echo -e "\e[31m Excute this script as root or sudo \e[0m"
    exit 1
 fi
 
