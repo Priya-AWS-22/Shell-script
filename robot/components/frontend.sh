@@ -2,6 +2,12 @@
 
 set -e
 
+ID=$(id -u)
+if [ "$id" -ne 0 ] ; then
+   echo -e "\e[33m Excute this script as root or sudo \e[0m"
+   exit 1
+fi
+
 yum install nginx -y
 
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
