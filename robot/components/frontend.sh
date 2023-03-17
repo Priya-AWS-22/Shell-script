@@ -24,7 +24,7 @@ fi
 }
 
 echo -n "Installing Ngnix : "
-yum install nginx -y &>> /tmp/frontend.log
+yum install nginx -y &>> $LOGFILE
 stat $1
 
 
