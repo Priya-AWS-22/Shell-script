@@ -13,42 +13,59 @@ if [ "$ID" -ne 0 ] ; then
     exit 1
 fi 
 
-stat() {
-    if [ $1 -eq 0 ] ; then 
+echo -n "Installing Ngnix : "
+yum install nginx -y &>> /tmp/frontend.log
+
+if [ $? -eq 0 ] ; then 
         echo -e "\e[32m Success \e[0m"
     else 
         echo -e "\e[31m Failure \e[0m"
         exit 2
-    fi 
-}
+fi 
 
-echo -n "Installing Ngnix : "
-yum install nginx -y &>> $LOGFILE
-stat $? 
+echo -n "Downloading the frontend component"
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+if [ $? -eq 0 ] ; then 
+        echo -e "\e[32m Success \e[0m"
+    else 
+        echo -e "\e[31m Failure \e[0m"
+        exit 2
+fi 
 
-echo -n "Downloading the $COMPONENT component :"
-curl -s -L -o /tmp/$COMPONENT.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
-stat $? 
-
-echo -n "Performing Cleanup of Old $COMPONENT Content :"
+echo -n "Performing cleanup of old frontend content :"
 cd /usr/share/nginx/html
-rm -rf *  &>> $LOGFILE
-stat $? 
+rm -rf *  &>> /tmp/frontend.log
+if [ $? -eq 0 ] ; then 
+        echo -e "\e[32m Success \e[0m"
+    else 
+        echo -e "\e[31m Failure \e[0m"
+        exit 2
+fi 
 
-echo -n "Copying the downloaded $COMPONENT content: "
-unzip /tmp/$COMPONENT.zip  &>> $LOGFILE
-mv $COMPONENT-main/* .
+echo -n "copying the downloaded frontend content :"
+unzip /tmp/frontend.zip  &>> /tmp/frontend.log
+mv frontend-main/* .
 mv static/* .
-rm -rf $COMPONENT-main README.md
+rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
-stat $? 
 
-for component in catalogue cart user shipping payment; do 
-    echo -n "Updating the proxy details in the reverse proxy file :"
-    sed -i "/$component/s/localhost/$component.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
-done 
+if [ $? -eq 0 ] ; then 
+        echo -e "\e[32m Success \e[0m"
+    else 
+        echo -e "\e[31m Failure \e[0m"
+        exit 2
+fi 
 
-echo -n "Starting the service: "
-systemctl enable nginx  &>> $LOGFILE
-systemctl restart nginx &>> $LOGFILE
-stat $?
+echo -n "Starting the service :"
+systemctl enable nginx &>> /tmp/frontend.log
+systemctl restart nginx &>> /tmp/frontend.log
+
+if [ $? -eq 0 ] ; then 
+        echo -e "\e[32m Success \e[0m"
+    else 
+        echo -e "\e[31m Failure \e[0m"
+        exit 2
+fi 
+
+
+
