@@ -51,11 +51,4 @@ done
 echo -n "Starting the service: "
 systemctl enable nginx  &>> $LOGFILE
 systemctl restart nginx &>> $LOGFILE
-stat $? 
-
-
-# 3 observation:
-
-# 1) Few are my script fails. still my script executed irrespective of the failure : set -e
-# 2) Need to have root privilege before installing
-# 3) information should be either success or failure
+stat $?
