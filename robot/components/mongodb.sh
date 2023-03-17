@@ -23,10 +23,15 @@ fi
 
 }
 
-echo -n "configuring the $COMPONENT repo"
+echo -n "configuring the $COMPONENT repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 stat $?
 
-echo -n "installing $COMPONENT"
+echo -n "installing $COMPONENT :"
 yum install -y mangodb-org &>> $LOGFILE
+stat $?
+
+echo -n "starting $COMPONENT :"
+systemctl enable mongod &>> $LOGFILE
+systemctl start mongod &>> $LOGFILE
 stat $?
